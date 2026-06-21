@@ -1,6 +1,6 @@
 // ─── Base URL ──────────────────────────────────────────────────────────────
 // This points to your Django dev server locally, or the production URL when built.
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
+const BASE_URL = import.meta.env.VITE_API_URL || `http://${window.location.hostname}:8000/api`;
 
 // ─── Helper: Make an API request ───────────────────────────────────────────
 export async function apiRequest(endpoint, method = 'GET', body = null, token = null) {

@@ -2,17 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiFacebook, FiInstagram, FiTwitter, FiMapPin, FiPhone, FiMail } from 'react-icons/fi';
 import MailPopup from './MailPopup';
+import { useAuth } from '../context/AuthContext';
 
 export default function Footer() {
+  const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [isMailOpen, setIsMailOpen] = useState(false);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    if (email) {
+    if (email || user) {
       setSubscribed(true);
-      setEmail('');
+      if (!user) setEmail('');
       setTimeout(() => setSubscribed(false), 5000);
     }
   };
@@ -99,16 +101,22 @@ export default function Footer() {
             Subscribe to receive exclusive recipes, culinary updates, and festive royal invitations.
           </p>
           <form onSubmit={handleSubscribe} className="space-y-2">
-            <div className="relative">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter email address"
-                className="w-full px-4 py-3 bg-[#2d1d2b] dark:bg-[#1a111e] border border-[#5c3c52] focus:border-secondary focus:outline-none rounded-xl text-sm placeholder-gray-400 transition-colors"
-              />
-            </div>
+            {!user ? (
+              <div className="relative">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter email address"
+                  className="w-full px-4 py-3 bg-[#2d1d2b] dark:bg-[#1a111e] border border-[#5c3c52] focus:border-secondary focus:outline-none rounded-xl text-sm placeholder-gray-400 transition-colors"
+                />
+              </div>
+            ) : (
+              <p className="text-sm text-gray-300 font-light px-2">
+                Subscribing as: <span className="text-secondary font-medium">{user.email}</span>
+              </p>
+            )}
             <button
               type="submit"
               className="w-full bg-secondary hover:bg-yellow-600 text-white font-medium py-3 px-4 rounded-xl text-sm transition-all duration-300 hover:shadow-lg active:scale-95"

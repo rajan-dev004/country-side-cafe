@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'cafe_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'country_side_cafe',       # Database name you created in pgAdmin
-        'USER': 'postgres',                # Your pgAdmin username (default: postgres)
-        'PASSWORD': 'admin123',            # Your pgAdmin password
+        'NAME': 'country_side_cafe',
+        'USER': 'postgres',
+        'PASSWORD': 'admin123',
         'HOST': 'localhost',
-        'PORT': '5432',                    # Default PostgreSQL port
+        'PORT': '5432',
     }
 }
 
