@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "/Users/rajan/Desktop/Sem5 & DL/Full Stacks/Country Side Cafe/backend/venv/bin/python3",
+  "python.analysis.extraPaths": [
+    "/Users/rajan/Desktop/Sem5 & DL/Full Stacks/Country Side Cafe/backend"
+  ],
+  "python.envFile": "/Users/rajan/Desktop/Sem5 & DL/Full Stacks/Country Side Cafe/backend/.env",
+  "python.analysis.autoImportCompletions": true,
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.typeCheckingMode": "off"
+}

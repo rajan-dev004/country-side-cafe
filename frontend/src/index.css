@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7c5c94;             /* Royal Lavender */
+  --color-primary-light: #e8def8;       /* Light Lavender */
+  --color-primary-dark: #4a2840;        /* Deep Eggplant/Plum */
+  --color-secondary: #e5a93c;           /* Warm Honey/Gold */
+  --color-secondary-light: #fbf0d9;     /* Soft Honey Cream */
+  --color-accent: #c084fc;              /* Pastel Purple */
+  
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+:root {
+  --text-main: #2d2633;
+  --text-muted: #6b5d75;
+  --bg-main: #fcfbfe;
+  --bg-surface: #ffffff;
+  --border-color: #eae6ee;
+  
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+html.dark {
+  --text-main: #f1ecf5;
+  --text-muted: #a89cb0;
+  --bg-main: #140e17;                   /* Night Eggplant */
+  --bg-surface: #201724;                /* Dark Eggplant Card */
+  --border-color: #2e2434;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+html.dark .glass {
+  background: rgba(32, 23, 36, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7bed1;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #473a50;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Base Styles & Custom Animations */
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
