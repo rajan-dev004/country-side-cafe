@@ -77,17 +77,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cafe_backend.wsgi.application'
 
+import dj_database_url
+
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'country_side_cafe',
-        'USER': 'postgres',
-        'PASSWORD': 'admin123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': config(
+        'DATABASE_URL',
+        default='postgres://postgres:admin123@localhost:5432/country_side_cafe',
+        cast=dj_database_url.parse
+    )
 }
 
 # Password validation
